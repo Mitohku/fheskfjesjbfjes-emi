@@ -156,7 +156,7 @@ async def botcreation(ctx):
 @bot.command(aliases=["couple", "presti", "emilia", "emi", "prestixemilia", "prestixemi"])
 async def prestiemilia(ctx):
 	presti = bot.get_user(bot_owner)
-	emilia = bot.get_user(00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000)
+	emilia = bot.get_user(180849535306694656)
 	now=datetime.datetime.utcnow()
 	xmas=datetime.datetime(now.year, 3, 31)
 	if xmas<now:
