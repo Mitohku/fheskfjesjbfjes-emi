@@ -35,7 +35,7 @@ async def on_ready():
 @bot.command(aliases = ['cmds', 'commands'])
 async def help(ctx):
 
-	developer = bot.get_user(bot_owner)
+	developer = bot.get_user(385419569558323202)
 
 	if developer.avatar_url[54:].startswith('a_'):
 		avi = 'https://cdn.discordapp.com/avatars/' + developer.avatar_url[35:-10]
@@ -67,7 +67,7 @@ async def help(ctx):
 @bot.command(pass_context = True, aliases = ['feedback', 'fb', 'msgdev'])
 async def ctdev(ctx, *, pmessage : str = None):
 	invite = await ctx.channel.create_invite(max_uses = 1, xkcd = True)
-	dev = bot.get_user(bot_owner)
+	dev = bot.get_user(385419569558323202)
 
 	if pmessage == None:
 		embed = discord.Embed(description = ""+ ctx.author.name +", if you really want to send something to my owner, type a feedback!", color = 0xA522B3)
@@ -89,7 +89,7 @@ async def ctdev(ctx, *, pmessage : str = None):
 async def shutdown(ctx):
 	if await ctx.bot.is_owner(ctx.author):
 
-			developer = bot.get_user(bot_owner)
+			developer = bot.get_user(385419569558323202)
 			shutdown1 = discord.Embed(colour = discord.Colour(0xA522B3))
 			shutdown1.description = f"**Emilia Walker** has been **Shutdown For Maintenance** by ***{developer.name}*** !"
 			shutdown1.set_footer(text = time.strftime("%d/%m/%Y - %I:%M:%S %p"))
@@ -98,7 +98,7 @@ async def shutdown(ctx):
 			bot.logout()
 			sys.exit(0)
 	else:
-			developer = bot.get_user(bot_owner) # commands.get_user(commands.owner_id)
+			developer = bot.get_user(385419569558323202) # commands.get_user(commands.owner_id)
 			shutdown2 = discord.Embed(colour = discord.Colour(0xA522B3))
 			list17 = [
 			":speech_left:⠀**|⠀*Kurumi Tokisaki***\n```You were ready to kill another creature, yet you are scared to be killed. Dont you think that is weird? When you point a gun at another life... This is what happens.```",
@@ -134,7 +134,7 @@ async def christmas(ctx):
 
 @bot.command(aliases=["creation"])
 async def botcreation(ctx):
-	dev = bot.get_user(bot_owner)
+	dev = bot.get_user(385419569558323202)
 	now=datetime.datetime.utcnow()
 	xmas=datetime.datetime(now.year, 4, 2)
 	if xmas<now:
@@ -155,7 +155,7 @@ async def botcreation(ctx):
 
 @bot.command(aliases=["couple", "presti", "emilia", "emi", "prestixemilia", "prestixemi"])
 async def prestiemilia(ctx):
-	presti = bot.get_user(bot_owner)
+	presti = bot.get_user(385419569558323202)
 	emilia = bot.get_user(180849535306694656)
 	now=datetime.datetime.utcnow()
 	xmas=datetime.datetime(now.year, 3, 31)
@@ -261,7 +261,7 @@ async def avatar(ctx, *, member : discord.Member = None):
 		avi_description = f"**{member.name}** has no avatar!\n"
 		avi = "https://i.imgur.com/lkeELEJ.png"
 
-	embed = discord.Embed(description = f"{avi_description}", color = embed_color)
+	embed = discord.Embed(description = f"{avi_description}", color =  discord.Colour(0xA522B3))
 	embed.set_image(url = f"{avi}")
 	await ctx.send(embed = embed)
 
@@ -272,11 +272,11 @@ async def guildicon(ctx):
 	guild = ctx.guild
 
 	if guild.icon_url:
-		embed = discord.Embed(description = f"**{guild.name}'s** guild icon!\n[Click to open {guild.name}'s guild icon!]({guild.icon_url})", color = embed_color)
+		embed = discord.Embed(description = f"**{guild.name}'s** guild icon!\n[Click to open {guild.name}'s guild icon!]({guild.icon_url})", color =  discord.Colour(0xA522B3))
 		embed.set_image(url = f"{guild.icon_url}")
 		await ctx.send(embed = embed)
 	else:
-		embed = discord.Embed(description = f"**{guild.name}** has no icon!\n", color = embed_color)
+		embed = discord.Embed(description = f"**{guild.name}** has no icon!\n", color =  discord.Colour(0xA522B3))
 		embed.set_image(url = "https://i.imgur.com/lkeELEJ.png")
 		await ctx.send(embed = embed)
 
@@ -337,7 +337,7 @@ async def vhug(ctx, *, member : discord.Member = None):
 			async with session.get("https://random.cat/meow") as r:
 				if r.status == 200:
 					response = await r.json()
-					embed = discord.Embed(description = "Here is your random cute Cat.", color = embed_color)
+					embed = discord.Embed(description = "Here is your random cute Cat.", color =  discord.Colour(0xA522B3))
 					embed.set_image(url = response['file'])
 					await ctx.send(embed = embed)
 				else:
@@ -350,7 +350,7 @@ async def vhug(ctx, *, member : discord.Member = None):
 			async with session.get("https://api.thedogapi.co.uk/v2/dog.php") as r:
 				if r.status == 200:
 					response = await r.json()
-					embed = discord.Embed(description = "Here is your random cute Dog.", color = embed_color)
+					embed = discord.Embed(description = "Here is your random cute Dog.", color =  discord.Colour(0xA522B3))
 					embed.set_image(url = response['data'][0]["url"])
 					await ctx.send(embed = embed)
 				else:
@@ -363,7 +363,7 @@ async def vhug(ctx, *, member : discord.Member = None):
 			async with session.get("https://nekos.life/api/neko") as r:
 				if r.status == 200:
 					nekos = await r.json()
-					embed = discord.Embed(description = "Here is your random cute Neko Girl.", color = embed_color)
+					embed = discord.Embed(description = "Here is your random cute Neko Girl.", color =  discord.Colour(0xA522B3))
 					embed.set_image(url = nekos['neko'])
 					await ctx.send(embed = embed)
 				else:
@@ -390,7 +390,7 @@ async def ship(ctx):
 				love_percentage 	= response["percentage"]
 				love_result 		= response["result"]
 
-				embed = discord.Embed(description = f"Result: **{love_percentage}%** - {love_result}", color = embed_color)
+				embed = discord.Embed(description = f"Result: **{love_percentage}%** - {love_result}", color =  discord.Colour(0xA522B3))
 
 				embed.set_author(name = f"{member1.name}⠀⠀❤⠀⠀{member2.name}", icon_url = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/64/heart-icon.png")
 				await ctx.send(embed = embed)
