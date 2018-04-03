@@ -141,7 +141,7 @@ async def botcreation(ctx):
 		xmas=xmas.replace(year=now.year+1)
 		embed=discord.Embed(colour = discord.Colour(0xA522B3))
 		embed.add_field(name=":question::question::question: Bot Creation :question::question::question:",
-			value=f"{xmas-2018} years ago, {dev} started making me! @everyone")
+			value=f"{year-2018} years ago, {dev} started making me! @everyone")
 		await ctx.send(embed=embed)
 	delta=xmas-now
 	weeks, remainder=divmod(int(delta.total_seconds()), 604800)
@@ -163,7 +163,7 @@ async def prestiemilia(ctx):
 		xmas=xmas.replace(year=now.year+1)
 		embed=discord.Embed(colour = discord.Colour(0xA522B3))
 		embed.add_field(name=":question::question::question: Couple Love :question::question::question:",
-			value=f"{xmas-2018} years ago, {presti} & {emilia} became a couple! @everyone")
+			value=f"{year-2018} years ago, {presti} & {emilia} became a couple! @everyone")
 		await ctx.send(embed=embed)
 	delta=xmas-now
 	weeks, remainder=divmod(int(delta.total_seconds()), 604800)
