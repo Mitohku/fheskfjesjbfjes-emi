@@ -136,12 +136,12 @@ async def christmas(ctx):
 async def botcreation(ctx):
 	dev = bot.get_user(385419569558323202)
 	now=datetime.datetime.utcnow()
-	xmas=datetime.datetime(now.year, 04, 02)
+	xmas=datetime.datetime(now.year, 4, 2)
 	if xmas<now:
 		xmas=xmas.replace(year=now.year+1)
 		embed=discord.Embed(colour = discord.Colour(0xA522B3))
 		embed.add_field(name=":question::question::question: Bot Creation :question::question::question:",
-			value=f"{now.year-2018} ago, {dev} started making me! @everyone")
+			value=f"{xmas-2018} years ago, {dev} started making me! @everyone")
 		await ctx.send(embed=embed)
 	delta=xmas-now
 	weeks, remainder=divmod(int(delta.total_seconds()), 604800)
@@ -158,12 +158,12 @@ async def prestiemilia(ctx):
 	presti = bot.get_user(385419569558323202)
 	emilia = bot.get_user(180849535306694656)
 	now=datetime.datetime.utcnow()
-	xmas=datetime.datetime(now.year, 03, 31)
+	xmas=datetime.datetime(now.year, 3, 31)
 	if xmas<now:
 		xmas=xmas.replace(year=now.year+1)
 		embed=discord.Embed(colour = discord.Colour(0xA522B3))
 		embed.add_field(name=":question::question::question: Couple Love :question::question::question:",
-			value=f"{now.year-2018} ago, {presti} & {emilia} became a couple! @everyone")
+			value=f"{xmas-2018} years ago, {presti} & {emilia} became a couple! @everyone")
 		await ctx.send(embed=embed)
 	delta=xmas-now
 	weeks, remainder=divmod(int(delta.total_seconds()), 604800)
