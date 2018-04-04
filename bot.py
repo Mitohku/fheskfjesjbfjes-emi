@@ -327,11 +327,11 @@ async def ship(ctx):
 		love_percentage = random.randint(1, 100)
 		if love_percentage < 30:
 			love_result = "I think no relationship could happen, you should try to find someone else.."
-		if love_percentage < 50 and >= 30:
+		if love_percentage < 50 && >= 30:
 			love_result = "A relationship would be hard, but dont give up!" 
-		if love_percentage < 80 and >= 50:
+		if love_percentage < 80 && >= 50:
 			love_result = "A relationship is possible! Try your best!"
-		if love_percentage == 100 and >=80:
+		if love_percentage == 100 && >=80:
 			love_result = "What are you waiting for?! Its possible!"
 
 		embed = discord.Embed(description = f"__Result:__ **{love_percentage}%**\n¤ {love_result}", color =  discord.Colour(0xA522B3))
