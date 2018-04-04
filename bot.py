@@ -225,7 +225,7 @@ async def vhug(ctx, *, member : discord.Member = None):
 
 	author = ctx.author
 	if not member:
-		await ctx.send("Please mention a user to send a hug")
+		await ctx.send("Please mention a user to send a hug to")
 	else:
 		member = member.mention
 
@@ -263,53 +263,53 @@ async def vhug(ctx, *, member : discord.Member = None):
 		await asyncio.sleep(0.50)
 		await message.edit(content = f"Sending Virtual Hug...")
 		await asyncio.sleep(2)
-		await message.edit(content = f"**Successfully** sent __virtual-hug.exe__ to **{member.name}**")
+		await message.edit(content = f"Successfully sent ***__virtual-hug.exe__***  to **{member}**")
 
 #########################################
 
-	@bot.group(invoke_without_command = True)
-	async def cute(ctx):
+@bot.group(invoke_without_command = True)
+async def cute(ctx):
 
-		await ctx.send(f"**{ctx.author.name}**, please use one of the following options: `cats`, `dogs` or `neko`")
+	await ctx.send(f"**{ctx.author.name}**, please use one of the following options: `cats`, `dogs` or `neko`")
 
-	@cute.command(name = 'cats')
-	async def cute_cats(ctx):
+@cute.command(name = 'cats')
+async def cute_cats(ctx):
 
-		async with aiohttp.ClientSession() as session:
-			async with session.get("https://random.cat/meow") as r:
-				if r.status == 200:
-					response = await r.json()
-					embed = discord.Embed(description = "Here is your random cute Cat.", color =  discord.Colour(0xA522B3))
-					embed.set_image(url = response['file'])
-					await ctx.send(embed = embed)
-				else:
-					await ctx.send(f'**{ctx.author.name}**, could not access the random.cat API!')
+	async with aiohttp.ClientSession() as session:
+		async with session.get("https://random.cat/meow") as r:
+			if r.status == 200:
+				response = await r.json()
+				embed = discord.Embed(description = "Here is your random cute Cat.", color =  discord.Colour(0xA522B3))
+				embed.set_image(url = response['file'])
+				await ctx.send(embed = embed)	
+			else:
+				await ctx.send(f'**{ctx.author.name}**, could not access the random.cat API!')
 
-	@cute.command(name = 'dogs')
-	async def cute_dogs(ctx):
+@cute.command(name = 'dogs')
+async def cute_dogs(ctx):
 
-		async with aiohttp.ClientSession() as session:
-			async with session.get("https://api.thedogapi.co.uk/v2/dog.php") as r:
-				if r.status == 200:
-					response = await r.json()
-					embed = discord.Embed(description = "Here is your random cute Dog.", color =  discord.Colour(0xA522B3))
-					embed.set_image(url = response['data'][0]["url"])
-					await ctx.send(embed = embed)
-				else:
-					await ctx.send(f'**{ctx.author.name}**, could not access the random.dog API!')
+	async with aiohttp.ClientSession() as session:
+		async with session.get("https://api.thedogapi.co.uk/v2/dog.php") as r:
+			if r.status == 200:
+				response = await r.json()
+				embed = discord.Embed(description = "Here is your random cute Dog.", color =  discord.Colour(0xA522B3))
+				embed.set_image(url = response['data'][0]["url"])
+				await ctx.send(embed = embed)
+			else:
+				await ctx.send(f'**{ctx.author.name}**, could not access the random.dog API!')
 
-	@cute.command(name = 'neko')
-	async def cute_neko(ctx):
+@cute.command(name = 'neko')
+async def cute_neko(ctx):
 
-		async with aiohttp.ClientSession() as session:
-			async with session.get("https://nekos.life/api/neko") as r:
-				if r.status == 200:
-					nekos = await r.json()
-					embed = discord.Embed(description = "Here is your random cute Neko Girl.", color =  discord.Colour(0xA522B3))
-					embed.set_image(url = nekos['neko'])
-					await ctx.send(embed = embed)
-				else:
-					await ctx.send(f'**{ctx.author.name}**, could not access the Nekos.life API!')
+	async with aiohttp.ClientSession() as session:
+		async with session.get("https://nekos.life/api/neko") as r:
+			if r.status == 200:
+				nekos = await r.json()
+				embed = discord.Embed(description = "Here is your random cute Neko Girl.", color =  discord.Colour(0xA522B3))
+				embed.set_image(url = nekos['neko'])
+				await ctx.send(embed = embed)
+			else:
+				await ctx.send(f'**{ctx.author.name}**, could not access the Nekos.life API!')
 
 #########################################
 
