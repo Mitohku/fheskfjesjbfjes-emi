@@ -225,6 +225,8 @@ async def vhug(ctx, *, member : discord.Member = None):
 
 	author = ctx.author
 	if not member:
+		await ctx.sendt("Please mention a user to send a hug")
+	else:
 		member = ctx.guild
 
 		message = await ctx.send(f"[⠀▓▓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀] / virtual-hug.exe Packing files..")
