@@ -327,12 +327,21 @@ async def ship(ctx):
 		love_percentage = random.randint(1, 100)
 		if love_percentage < 30:
 			love_result = "I think no relationship could happen, you should try to find someone else.."
-		if love_percentage < 50 & if >= 30:
-			love_result = "A relationship would be hard, but dont give up!" 
-		if love_percentage < 80 & if >= 50:
-			love_result = "A relationship is possible! Try your best!"
-		if love_percentage == 100 if & >= 80:
-			love_result = "What are you waiting for?! Its possible!"
+		if love_percentage < 50:
+			if love_percentage >= 30:
+				love_result = "A relationship would be hard, but dont give up!" 
+			else:
+				return
+		if love_percentage < 80:
+			if love_percentage >= 50:
+				love_result = "A relationship is possible! Try your best!"
+			else:
+				return
+		if love_percentage == 100:
+			if love_percentage >= 80:
+				love_result = "What are you waiting for?! Its possible!"
+			else:
+				return
 
 		embed = discord.Embed(description = f"__Result:__ **{love_percentage}%**\n¤ {love_result}", color =  discord.Colour(0xA522B3))
 		embed.set_author(name = f"{member1.name}⠀⠀❤⠀⠀{member2.name}", icon_url = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/64/heart-icon.png")
