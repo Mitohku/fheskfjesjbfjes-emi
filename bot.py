@@ -319,25 +319,24 @@ async def ship(ctx):
 	mentions = [member for member in ctx.message.mentions if member.id != ctx.bot.user.id]
 	if len(mentions) < 2:
 		message = f"**{ctx.author.name}**, you need to fill in two names!"
+	
+	else:
+		member1 = member.mention[0]
+		member2 = member.mention[1]
 
-	member1 = mentions[0]
-	member2 = mentions[1]
+		love_percentage = random.randint(1, 100)
+		if love_percentage <= 30:
+			love_result = "I think no relationship could happen, you should try to find someone else.."
+		if love_percentage < 50 and > 30:
+			love_result = "A relationship would be hard, but dont give up!" 
+		if love_percentage < 80 and >= 50:
+			love_result = "A relationship is possible! Try your best!"
+		if love_percentage == 100 and >=80:
+			love_result = "What are you waiting for?! Its possible!"
 
-	headers = {"X-Mashape-Key": f"{Mashape_API}", "Accept": "application/json"}
-	async with aiohttp.ClientSession() as session:
-		async with session.get(f"https://love-calculator.p.mashape.com/getPercentage?fname={member1.name}&sname={member2.name}", headers = headers) as r:
-			if r.status == 200:
-				response = await r.json()
-
-				love_percentage 	= response["percentage"]
-				love_result 		= response["result"]
-
-				embed = discord.Embed(description = f"Result: **{love_percentage}%** - {love_result}", color =  discord.Colour(0xA522B3))
-
-				embed.set_author(name = f"{member1.name}⠀⠀❤⠀⠀{member2.name}", icon_url = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/64/heart-icon.png")
-				await ctx.send(embed = embed)
-			else:
-				await ctx.send(f'**{ctx.author.name}**, I could not access the Love API!', delete_after = 15)
+		embed = discord.Embed(description = f"__Result:__ **{love_percentage}%**\n¤ {love_result}", color =  discord.Colour(0xA522B3))
+		embed.set_author(name = f"{member1.name}⠀⠀❤⠀⠀{member2.name}", icon_url = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/64/heart-icon.png")
+		await ctx.send(embed = embed)
 
 #########################################
 
