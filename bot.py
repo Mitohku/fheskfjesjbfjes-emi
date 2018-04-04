@@ -314,7 +314,7 @@ async def cute_neko(ctx):
 #########################################
 
 @bot.command(aliases = ['lovecalc', 'lcal', 'lovecalculator'])
-async def ship(ctx):
+async def ship(ctx, *, member : discord.Member = None):
 
 	mentions = [member for member in ctx.message.mentions if member.id != ctx.bot.user.id]
 	if len(mentions) < 2:
