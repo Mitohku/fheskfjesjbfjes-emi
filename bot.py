@@ -115,8 +115,19 @@ async def shutdown(ctx):
 @bot.command(aliases=['gleave'])
 async def guildleave(ctx):
 	guild = ctx.guild
-	await ctx.send("Im leaving the guild!")
-	await ctx.guild.leave()
+	developer = bot.get_user(385419569558323202)
+
+	if await ctx.bot.is_owner(ctx.author):
+		embed = discord.Embed(colour = discord.Colour(0xA522B3))
+		embed.description = f"**{developer.name}** told me to leave __{guild.name}__! Bye bye!~"
+		await ctx.send(embed = embed)
+		await asyncio.sleep(1.50)
+		await ctx.guild.leave()
+	else:
+		embed = discord.Embed(colour = discord.Colour(0xA522B3))
+		embed.description = f"**{developer.name}** told m-- Wait. Who are you?!"
+		embed.set_footer(text = "You dont have permissions to use this command")
+		await ctx.send(embed = embed)
 
 #########################################
 
