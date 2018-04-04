@@ -324,25 +324,33 @@ async def ship(ctx, *, member : discord.Member = None):
 		love_percentage = random.randint(1, 100)
 		if love_percentage < 30:
 			love_result = "I think no relationship could happen, you should try to find someone else.."
+			embed = discord.Embed(description = f"__Result:__ **{love_percentage}%**\n¤ {love_result}", color =  discord.Colour(0xA522B3))
+			embed.set_author(name = f"LoveCalculator⠀⠀❤", icon_url = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/64/heart-icon.png")
+			await ctx.send(embed = embed)
 		if love_percentage < 50:
 			if love_percentage >= 30:
 				love_result = "A relationship would be hard, but dont give up!" 
+				embed = discord.Embed(description = f"__Result:__ **{love_percentage}%**\n¤ {love_result}", color =  discord.Colour(0xA522B3))
+				embed.set_author(name = f"LoveCalculator⠀⠀❤", icon_url = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/64/heart-icon.png")
+				await ctx.send(embed = embed)
 			else:
 				return
 		if love_percentage < 80:
 			if love_percentage >= 50:
 				love_result = "A relationship is possible! Try your best!"
+				embed = discord.Embed(description = f"__Result:__ **{love_percentage}%**\n¤ {love_result}", color =  discord.Colour(0xA522B3))
+				embed.set_author(name = f"LoveCalculator⠀⠀❤", icon_url = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/64/heart-icon.png")
+				await ctx.send(embed = embed)
 			else:
 				return
 		if love_percentage == 100:
 			if love_percentage >= 80:
 				love_result = "What are you waiting for?! Its possible!"
+				embed = discord.Embed(description = f"__Result:__ **{love_percentage}%**\n¤ {love_result}", color =  discord.Colour(0xA522B3))
+				embed.set_author(name = f"LoveCalculator⠀⠀❤", icon_url = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/64/heart-icon.png")
+				await ctx.send(embed = embed)
 			else:
 				return
-
-		embed = discord.Embed(description = f"__Result:__ **{love_percentage}%**\n¤ {love_result}", color =  discord.Colour(0xA522B3))
-		embed.set_author(name = f"LoveCalculator⠀⠀❤", icon_url = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/64/heart-icon.png")
-		await ctx.send(embed = embed)
 
 #########################################
 
