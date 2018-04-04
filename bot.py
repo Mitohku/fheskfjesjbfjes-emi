@@ -113,16 +113,10 @@ async def shutdown(ctx):
 #########################################
 
 @bot.command(aliases=['gleave'])
-async def guildleave(ctx, *, pmessage : str = None):
+async def guildleave(ctx):
 	guild = ctx.guild
-
-	if pmessage == None:
-		embed = discord.Embed(description = "Please give the server id!", color = 0xA522B3)
-		await ctx.send(embed = embed)
-		await ctx.message.delete()
-	else:
-		if pmessage == guild.id:
-			await ctx.guild.leave()
+	await ctx.send("Im leaving the guild!")
+	await ctx.guild.leave()
 
 #########################################
 
