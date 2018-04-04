@@ -227,7 +227,7 @@ async def vhug(ctx, *, member : discord.Member = None):
 	if not member:
 		await ctx.send("Please mention a user to send a hug")
 	else:
-		member = ctx.guild
+		member = member.mention
 
 		message = await ctx.send(f"[⠀▓▓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀] / virtual-hug.exe Packing files..")
 		await asyncio.sleep(1)
@@ -260,6 +260,8 @@ async def vhug(ctx, *, member : discord.Member = None):
 		await message.edit(content = f"Sending Virtual Hug.")
 		await asyncio.sleep(0.50)
 		await message.edit(content = f"Sending Virtual Hug..")
+		await asyncio.sleep(0.50)
+		await message.edit(content = f"Sending Virtual Hug...")
 		await asyncio.sleep(2)
 		await message.edit(content = f"**Successfully** sent __virtual-hug.exe__ to **{member.name}**")
 
