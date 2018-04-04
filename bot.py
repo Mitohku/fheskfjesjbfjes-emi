@@ -315,14 +315,11 @@ async def cute_neko(ctx):
 
 @bot.command(aliases = ['lovecalc', 'lcal', 'lovecalculator'])
 async def ship(ctx, *, member : discord.Member = None):
-
-	mentions = [member for member in ctx.message.mentions if member.id != ctx.bot.user.id]
-	if len(mentions) < 2:
-		message = f"**{ctx.author.name}**, you need to fill in two names!"
 	
+	if not member:
+		await ctx.send("Please mention a user to calculate love percentage")
 	else:
-		member1 = member.mention[0]
-		member2 = member.mention[1]
+		member = member.mention
 
 		love_percentage = random.randint(1, 100)
 		if love_percentage < 30:
@@ -344,7 +341,7 @@ async def ship(ctx, *, member : discord.Member = None):
 				return
 
 		embed = discord.Embed(description = f"__Result:__ **{love_percentage}%**\n¤ {love_result}", color =  discord.Colour(0xA522B3))
-		embed.set_author(name = f"{member1.name}⠀⠀❤⠀⠀{member2.name}", icon_url = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/64/heart-icon.png")
+		embed.set_author(name = f"LoveCalculator⠀⠀❤", icon_url = "http://icons.iconarchive.com/icons/paomedia/small-n-flat/64/heart-icon.png")
 		await ctx.send(embed = embed)
 
 #########################################
