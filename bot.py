@@ -141,7 +141,7 @@ async def botcreation(ctx):
 		xmas=xmas.replace(year=now.year+1)
 		embed=discord.Embed(colour = discord.Colour(0xA522B3))
 		embed.add_field(name=":question::question::question: Bot Creation :question::question::question:",
-			value=f"{now.year-2018} years ago, {dev} started making me! @everyone")
+			value=f"{now.year-2018} years ago, **{dev.name}** started making me! @everyone")
 		await ctx.send(embed=embed)
 	delta=xmas-now
 	weeks, remainder=divmod(int(delta.total_seconds()), 604800)
@@ -163,7 +163,7 @@ async def prestiemilia(ctx):
 		xmas=xmas.replace(year=now.year+1)
 		embed=discord.Embed(colour = discord.Colour(0xA522B3))
 		embed.add_field(name=":question::question::question: Couple Love :question::question::question:",
-			value=f"{now.year-2018} years ago, {presti} & {emilia} became a couple! @everyone")
+			value=f"{now.year-2018} years ago, **{presti.name}** & **{emilia.name}** became a couple! @everyone")
 		await ctx.send(embed=embed)
 	delta=xmas-now
 	weeks, remainder=divmod(int(delta.total_seconds()), 604800)
@@ -177,92 +177,7 @@ async def prestiemilia(ctx):
 
 #########################################
 
-@bot.group()
-async def game(self):
-	
-	if game == None:
-		await self.send(f"Please use one of the following settings: `default`, `playing`, `streaming`, `watching`, `listenning` or `clear`")
-
-@game.command(name = 'playing')
-async def game_playing(self, *, game = None):
-
-	if await self.bot.is_owner(self.author):
-		if not game:
-			await self.send(f"Please enter a status message")
-		else:
-			await self.bot.change_presence(game=discord.Game(name = game))
-			await self.send(f"**{self.bot.user.name}**'s status succesfully changed to 'Playing **{game}**'")
-	else:
-		await self.send("You dont have permissions to use this command")
-
-@game.command(name = 'streaming')
-async def game_streaming(self, *, game = None):
-
-	if await self.bot.is_owner(self.author):
-		if not game:
-			await self.send(f"Please enter a status message")
-		else:
-			await self.bot.change_presence(game=discord.Game(name = game, url = "https://www.twitch.tv/spiritprod", type = 1))
-			await self.send(f"**{self.bot.user.name}**'s status succesfully changed to 'Streaming **{game}**'")
-	else:
-			await self.send("You dont have permissions to use this command")
-
-@game.command(name = 'listenning')
-async def game_listning(self, *, game = None):
-
-	if await self.bot.is_owner(self.author):
-		if not game:
-			await self.send(f"Please enter a status message")
-		else:
-			await self.bot.change_presence(game=discord.Game(name = game, type = 2))
-			await self.send(f"**{self.bot.user.name}**'s status succesfully changed to 'Listenning to **{game}**'")
-	else:
-		await self.send("You dont have permissions to use this command")
-
-@game.command(name = 'watching')
-async def game_watching(self, *, game = None):
-
-	if await self.bot.is_owner(self.author):
-		if not game:
-			await self.send(f"Please enter a status message")
-		else:
-			await self.bot.change_presence(game=discord.Game(name = game, type = 3))
-			await self.send(f"**{self.bot.user.name}**'s status succesfully changed to 'Watching **{game}**'")
-	else:
-		await self.send("You dont have permissions to use this command")
-
-@game.command(name = 'default')
-async def game_default(self):
-
-	if await self.bot.is_owner(self.author):
-		if not game:
-			await self.send(f"Please enter a status message")
-		else:
-			bot_prefix = "~"
-			server = self.guild
-			games = [f"Use {bot_prefix}help for help!", f"{sum(1 for _ in self.bot.get_all_members())} users", f"Give us feedback? Use: {bot_prefix}feedback [message]"]
-			current_number = 0
-			await self.send(f"**{self.bot.user.name}**'s status succesfully changed to 'Default'")
-			while True:
-				if current_number == len(games):
-					current_number = 0
-					await self.bot.change_presence(game=discord.Game(name = games[current_number], url = "https://www.twitch.tv/spiritprod", type = 1))
-					await asyncio.sleep(12)
-					current_number += 1
-	else:
-		await self.send("You dont have permissions to use this command")
-
-@game.command(name = 'clear')
-async def game_clear(self, *, game = None):
-
-	if await self.bot.is_owner(self.author):
-		if not game:
-			await self.send(f"Please enter a status message")
-		else:
-			await self.bot.change_presence(game=discord.Game(name = None))
-			await self.send(f"Cleared the status of **{self.bot.user.name}**")
-	else:
-		await self.send("You dont have permissions to use this command")
+##      GAME COMMAND (NOT WORKING)     ##
 
 #########################################
 
