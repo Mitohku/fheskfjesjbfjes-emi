@@ -30,32 +30,14 @@ async def on_ready():
     print('------')
 
 @bot.event
-async def on_server_join(ctx, *, member : discord.Member = None):
-	member = member.mention
+async def on_server_join(ctx):
+	member = discord.Member
+	member1 = member.mention
 	
 	embed = discord.Embed(colour = discord.Colour(0xA522B3))
-	embed.description = f"Welcome to the server **{member}**! It's nowhere near done and still being set up. You have __24 hours__ to say **`Hai`** or **`Bai`** to access to the server.\nAlso, please read pinned messages."
+	embed.description = f"Welcome to the server **{member1}**! It's nowhere near done and still being set up. You have __24 hours__ to say **`Hai`** or **`Bai`** to access to the server.\nAlso, please read pinned messages."
+	await bot.get_channel(429820948485767168)
 	await ctx.send(embed = embed)
-
-@bot.event
-async def on_message(ctx, *, message, member : discord.Member = None):
-	member = message.author
-	welcome = bot.get_channel(429820948485767168)
-	
-	if message == "Hai":
-		if message in welcome:
-			await ctx.send("Welcome!")
-			await asyncio.sleep(0.50)
-			await member.add_roles(*Member, reason="New to Server")
-		else:
-			await ctx.send("COMMAND ERROR (HAI)")
-	if message == "Bai":
-		if message in welcome:
-			await ctx.send("Kicking from server..")
-			await asyncio.sleep(0.50)
-			await member.add_roles(*kick, reason="Bai - No Access to Server")
-		else:
-			await ctx.send("COMMAND ERROR (BAI)")
 
 #########################################
 
