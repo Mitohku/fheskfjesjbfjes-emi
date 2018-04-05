@@ -29,7 +29,7 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
-@bot.event()
+@bot.event
 async def on_server_join(ctx, *, member : discord.Member = None):
 	member = member.mention
 	
@@ -37,7 +37,7 @@ async def on_server_join(ctx, *, member : discord.Member = None):
 	embed.description = f"Welcome to the server **{member}**! It's nowhere near done and still being set up. You have __24 hours__ to say **`Hai`** or **`Bai`** to access to the server.\nAlso, please read pinned messages."
 	await ctx.send(embed = embed)
 
-@bot.event()
+@bot.event
 async def on_message(ctx, *, message, member : discord.Member = None):
 	member = message.author
 	welcome = bot.get_channel(429820948485767168)
