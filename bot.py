@@ -30,7 +30,7 @@ async def on_ready():
     print('------')
 
 @bot.event
-async def on_server_join(ctx):
+async def on_guild_join(ctx):
 	member = discord.Member
 	member1 = member.mention
 	
