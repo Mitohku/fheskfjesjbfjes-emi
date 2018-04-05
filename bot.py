@@ -32,12 +32,12 @@ async def on_ready():
 @bot.event
 async def on_guild_join(ctx):
 	member = discord.Member
-	member1 = member.mention
+	member1 = "TEST"
+	welcome = bot.get_channel(429820948485767168)
 	
 	embed = discord.Embed(colour = discord.Colour(0xA522B3))
 	embed.description = f"Welcome to the server **{member1}**! It's nowhere near done and still being set up. You have __24 hours__ to say **`Hai`** or **`Bai`** to access to the server.\nAlso, please read pinned messages."
-	await bot.get_channel(429820948485767168)
-	await ctx.send(embed = embed)
+	await ctx.send(embed = embed, welcome)
 
 #########################################
 
