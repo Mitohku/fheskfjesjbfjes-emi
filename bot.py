@@ -217,7 +217,7 @@ async def on_message(ctx, *, message, member : discord.Member = None):
 		if message in welcome:
 			await ctx.send("Welcome!")
 			await asyncio.sleep(0.50)
-			await member.add_roles(*Member, reason="New to Server")
+			await member.add_roles(*roles, reason="New to Server")
 		else:
 			await ctx.send("COMMAND ERROR (HAI)")
 	if message == "Bai":
