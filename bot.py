@@ -37,7 +37,7 @@ async def on_guild_join(ctx):
 	
 	embed = discord.Embed(colour = discord.Colour(0xA522B3))
 	embed.description = f"Welcome to the server **{member1}**! It's nowhere near done and still being set up. You have __24 hours__ to say **`Hai`** or **`Bai`** to access to the server.\nAlso, please read pinned messages."
-	await ctx.send(embed = embed, welcome)
+	await ctx.send(welcome, embed = embed)
 
 #########################################
 
