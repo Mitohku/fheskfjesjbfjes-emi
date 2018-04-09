@@ -401,6 +401,16 @@ async def latency(ctx):
 	await message.edit(content = f"Pong! - My latency is **{pings}**s | **{pingms}**ms")
 
 #########################################
+
+@bot.command()
+async def info(ctx):
+	star = bot.get_user(180849535306694656)
+	embed = discord.Embed(colour = discord.Colour(0xA522B3))
+	embed.description = f"I am Presti's basic bitch that belongs to her in mind, body and soul."
+	embed.set_footer(text = "Asked by {star.mention}")
+	await ctx.send(embed = embed)
+	
+#########################################
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if not os.environ.get('TOKEN'):
         print("No token found REEEE!")
